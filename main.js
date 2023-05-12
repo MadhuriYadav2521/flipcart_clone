@@ -86,3 +86,27 @@ function logout() {
     localStorage.removeItem("flipcartCurrentUser");
     window.location.reload();
 }
+
+
+function addProduct(event) {
+    event.preventDefault();
+    // alert("Product adding....")
+    var proName = document.getElementById("pname").value;
+    var proPrice = document.getElementById("pprice").value;
+    var proImage = document.getElementById("pimage").value;
+    var proColor = document.getElementById("pcolor").value;
+    var proBrand = document.getElementById("pbrand").value;
+    var product = { proName, proPrice, proImage, proColor, proBrand};
+
+    var LS = JSON.parse(localStorage.getItem("flipcartProducts")) || [];
+    LS.push(product);
+    localStorage.setItem("flipcartProducts", JSON.stringify(LS));
+
+    alert("Product Added Successfully.")
+    // document.getElementById("pname").value = "";
+    // document.getElementById("pprice").value = "";
+    // document.getElementById("pimage").value = "";
+    // document.getElementById("pcolor").value = "";
+    // document.getElementById("pbrand").value = "";
+}
+

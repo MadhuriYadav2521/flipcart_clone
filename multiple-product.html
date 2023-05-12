@@ -18,7 +18,7 @@
     <div class="screen">
         <div class="navbar-wrapper">
             <div class="navbar-container">
-                <div class="logo-wrapper">
+                <div class="logo-wrapper" onclick="window.location.href='./index.html'">
                     <div class="logo-img">
                         <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png"
                             alt="">
@@ -45,28 +45,115 @@
                 </div>
             </div>
         </div>
-        <div class="product-container">
-            <div class="product">
-                <div class="product-img">
-                    <img src="https://rukminim1.flixcart.com/image/612/612/kvba7bk0/lehenga-choli/v/v/m/free-half-sleeve-new-ruffle-designer-lehenga-cholis-for-indian-original-imag88ryhq3gpupc.jpeg?q=70" alt="">
-                </div>
-                <div class="product-desc">
-                    <div class="pro-brand">ZAALIMA FASHION</div>
-                    <div class="pro-name">Embroidered Semi Stitched Lehenga Choli</div>
-                    <div class="pro-color">gray</div>
-                    <div class="pro-assure-img">
-                        <img src="//static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png" alt="">
+        <div class="product-section">
+            <div class="product-container" id="productContainer">
+                <div class="product">
+                    <div class="product-img">
+                        
                     </div>
-                    <div class="pro-price-section">
-                        <span class="real-price">4000</span>
-                        <span class="del-price"><del>4500</del></span>
-                        <span class="off">12% off</span>
+                    <div class="product-desc">
+                        <div class="pro-brand"></div>
+                        <div class="pro-name"></div>
+                        <div class="pro-color"></div>
+                        <div class="pro-assure-img">
+                            <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png"
+                                alt="">
+                        </div>
+                        <div class="pro-price-section">
+                            <span class="real-price"></span>
+                            <span class="del-price"><del>4500</del></span>
+                            <span class="off">12% off</span>
+                        </div>
+                        <div class="pro-size">Size <span>XS,S,M,L,XL,XXL</span></div>
                     </div>
-                    <div class="pro-size">Size <span>Free</span></div>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
+
+    <script>
+        window.onload = function () {
+        // alert("CKJAN")
+
+        // alert("working")
+        var currentUser = JSON.parse(localStorage.getItem("flipcartCurrentUser"))
+        // console.log(currentUser,"currentUser");
+        if (!!currentUser) {
+            // alert(currentUser.namee)
+            var logoutDiv = document.getElementById("logout");
+            var divFromHtml = document.getElementById("switch");
+            // console.log(divFromHtml,"divFromHtml");
+            // var h1 = document.createElement("h1");
+            // h1.innerText = "madhuri"
+            // divFromHtml.append(h1)
+            var button = '<div onclick="logout() " ><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</div>'
+            var name = `<p> ${currentUser.namee}</p>`;
+            divFromHtml.innerHTML = name;
+            logoutDiv.innerHTML = button;
+        }
+        // else{
+        //     alert("current user absent")
+        // }
+
+
+        // var divToShowProducts = document.getElementById("products");
+  
+        var divToShowAllProduct = document.getElementById("productContainer");
+
+        var finalContainer = "";
+
+        var productsFromLS = JSON.parse(localStorage.getItem("flipcartProducts"))
+        for (var i = 0; i < productsFromLS.length; i++) {
+            // finalData += `<a  onclick='redirect(${JSON.stringify(productsFromLS[i])})'>
+            //             <img src=${productsFromLS[i].proImage} /><div class="g-pro-name">${productsFromLS[i].proName}</div>
+            //             <div class="g-pro-price">₹  ${productsFromLS[i].proPrice}</div></a>`;
+
+
+            finalContainer += `<div class="product" onclick='redirect(${JSON.stringify(productsFromLS[i])})'>
+                    <div class="product-img">
+                        <img src=${productsFromLS[i].proImage} />
+                    </div>
+                    <div class="product-desc">
+                        <div class="pro-brand">${productsFromLS[i].proBrand}</div>
+                        <div class="pro-name">${productsFromLS[i].proName}</div>
+                        <div class="pro-color">${productsFromLS[i].proColor}</div>
+                        <div class="pro-assure-img">
+                            <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png"
+                                alt="">
+                        </div>
+                        <div class="pro-price-section">
+                            <span class="real-price">₹ ${productsFromLS[i].proPrice}</span>
+                            <span class="del-price"><del>4500</del></span>
+                            <span class="off">12% off</span>
+                        </div>
+                        <div class="pro-size">Size <span>XS,S,M,L,XL,XXL</span></div>
+                    </div>
+                </div>`
+        }
+
+        // console.log(finalData, "finalData here")
+
+
+        // divToShowProducts.innerHTML = finalData;
+        divToShowAllProduct.innerHTML = finalContainer;
+
+
+    }
+    function redirect(product) {
+        var singleProduct = JSON.stringify(product);
+        // console.log(s, " s here")
+        // alert("Working")
+        localStorage.setItem("flipcart-current-product", singleProduct);
+        window.location.href = './product-details2.html'
+    }
+
+
+    </script>
+<script src="./main.js"></script>
 </body>
 
 </html>

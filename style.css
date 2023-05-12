@@ -132,6 +132,7 @@ a {
     text-align: center;
     letter-spacing: .09rem;
     /* border: 1px solid black; */
+    cursor: pointer;
 }
 
 .right-nav-link:nth-child(1) {
@@ -201,7 +202,9 @@ a {
     width: 50%;
     margin: 5% auto 0 auto;
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 }
 .login-left{
     width: 40%;
@@ -286,3 +289,146 @@ input[type="email"]:focus,
 input[type="password"]:focus {
     outline: none;
 }
+.submit-btn{
+    width: 100%;
+}
+.submit-btn input{
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: .09rem;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #fb641b;
+    margin-bottom: 1.5rem;
+}
+.return-btn{
+    width: 100%;
+    color: #2874f0;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: .09rem;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-bottom: 2rem;
+}
+.tandc-sp-small-text{
+    font-size: 1.2rem;
+}
+
+/* --------- multipl product  ----------- */
+
+.product-container{
+    width: 100%;
+    display: flex;
+    margin-top: 5%;
+
+}
+.product{
+    width: 20%;
+}
+.product-img {
+    width: 100%;
+}
+.product-img img{
+    width: 100%;
+}
+.product-desc{
+    width: 100%;
+}
+.pro-brand{
+    width: 100%;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: .5rem;
+    color: gray;
+    text-transform: capitalize;
+}
+.pro-name{
+    width: 100%;
+    font-size: 1.4rem;
+    margin-bottom: .5rem;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pro-color{
+    width: 100%;
+    font-size: 1.2rem;
+    color: gray;
+    margin-bottom: .5rem;
+    text-transform: capitalize;
+}
+.pro-assure-img{
+    width: 100%;
+  
+}
+.pro-assure-img img{
+    width: 80%;
+}
+.pro-price-section{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.real-price{
+    font-size: 1.4rem;
+    margin-bottom: .5rem;
+    text-transform: capitalize;
+    margin-right: .5rem;
+    
+}
+.del-price{
+    font-size: 1.4rem;
+    margin-bottom: .5rem;
+    color: gray;
+    text-transform: capitalize;
+    margin-right: .5rem;
+}
+.off{
+    font-size: 1.3rem;
+    margin-bottom: .5rem;
+    text-transform: capitalize;
+    color: green;
+}
+.pro-size{
+    font-size: 1.3rem;
+    margin-bottom: .5rem;
+    color: gray;
+    text-transform: capitalize;
+    margin-right: .5rem;
+}
+.pro-size span{
+    color: #000000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

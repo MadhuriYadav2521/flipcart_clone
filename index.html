@@ -37,10 +37,11 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <div class="right-nav-wrapper">
-                    <div class="right-nav-link">login</div>
+                    <div class="right-nav-link" onclick="window.location.href='./login.html'" id="switch">login</div>
                     <div class="right-nav-link">Become a seller</div>
                     <div class="right-nav-link">more<i class="fa-solid fa-angle-down"></i></div>
                     <div class="right-nav-link"><i class="fa-solid fa-cart-shopping"></i>cart</div>
+                    <div class="right-nav-link" id="logout"></div>
                 </div>
             </div>
         </div>
@@ -109,6 +110,36 @@
     </div>
 
 
+
+    <script>
+        window.onload = function () {
+            // alert("working")
+            var currentUser = JSON.parse(localStorage.getItem("flipcartCurrentUser"))
+            // console.log(currentUser,"currentUser");
+            if (!!currentUser) {
+                // alert(currentUser.namee)
+                var logoutDiv = document.getElementById("logout");
+                var divFromHtml = document.getElementById("switch");
+                // console.log(divFromHtml,"divFromHtml");
+                // var h1 = document.createElement("h1");
+                // h1.innerText = "madhuri"
+                // divFromHtml.append(h1)
+                var button = '<div onclick="logout() "><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</div>'
+                var name = `<p> ${currentUser.namee}</p>`;
+                divFromHtml.innerHTML = name;
+                logoutDiv.innerHTML = button;
+            }
+            // else{
+            //     alert("current user absent")
+            // }
+        }
+        function logout() {
+            alert("We will miss you..")
+            localStorage.removeItem("flipcartCurrentUser");
+            window.location.reload();
+        }
+
+    </script>
 </body>
 
 </html>

@@ -19,20 +19,15 @@
         <div class="login-container">
             <div class="login-left">
                <div class="login-text-wrapper">
-                <div class="login-title">Looks like you're new here!</div>
-                <div class="login-text">Sign up with your mobile number to get started</div>
+                <div class="login-title">Login</div>
+                <div class="login-text">Get access to your Orders, Wishlist and Recommendations</div>
                </div>
                 <div class="login-img">
                     <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/login_img_c4a81e.png" alt="">
                 </div>
             </div>
             <div class="login-right">
-                <form action="" onsubmit="register(event)">
-                      
-                    <div class="input_wrap">
-                        <input type="text" id="userName" required  autocomplete="off"/>
-                        <label>Enter your name</label>
-                    </div>
+                <form action="" onsubmit="login(event)">
                     <div class="input_wrap">
                         <input type="email" id="userEmail" required autocomplete="off" />
                         <label>Enter your email</label>
@@ -41,18 +36,12 @@
                         <input type="password" id="userPassword" required  autocomplete="off"/>
                         <label>Enter your password</label>
                     </div>
-                    <div class="input_wrap">
-                        <input type="password"  id="userConfirmPassword" required  autocomplete="off"/>
-                        <label>Confirm password</label>
-                    </div>
 
                     <div class="submit-btn">
-                        <input type="submit" name="" id="" value="Sign Up">
+                        <input type="submit" name="" id="" value="Login">
                     </div>
-                    <p class="return-btn" onclick="window.location.href='./login.html'">existing user? log in</p>
                 </form>
-                <p class="tandc-sp-small-text">By clicking on Login, I accept the <span>Terms & Conditions Privacy
-                        Policy</span></p>
+                <p class="tandc-sp-small-text" onclick="window.location.href='./signup.html'">New to flipcart? Create an account!</p>
             </div>
         </div>
 

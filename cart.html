@@ -48,10 +48,80 @@
         <div class="cart-container">
             <div class="cart-inner-container">
                 <div class="cart-left">
-                    
+                   <div class="cart-header">
+                        <div class="cart-header-content active" >flipcart (<span>2</span>)</div>
+                        <div class="cart-header-content">grocery</div>
+                   </div> 
+                   <div class="pincode-check">
+                        <div class="pc-left">
+                            from saved addresses
+                        </div>
+                        <div class="pc-right">
+                            enter dilevery pincode
+                        </div>
+                   </div>
+                   <div class="cart-items"id="finalcart">
+                        <div class="cart-item" >
+                            <div class="cart-item-left">
+                                <div class="cart-left-content">
+                                    <div class="cart-img">
+                                        <img src="https://rukminim1.flixcart.com/image/224/224/xif0q/lehenga-choli/7/6/u/free-3-4-sleeve-kvslc6008-zns-kvsfab-original-imaghdxzxejt5khn.jpeg?q=90" alt="">
+                                    </div>
+                                    <div class="cart-pro-qty">
+                                        <span>-</span>
+                                        <span>1</span>
+                                        <span>+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-item-right">
+                                <span class="c-product-brand">Sassafrass</span>
+                                <span class="c-product-name">SAWARIYA-G Flared/A-line Gown</span>
+                                <div class="c-size-color"><span>M</span><span>Silver</span></div>
+                                <div class="peroduct-seller">Seller: sawarying</div>
+                                <div class="c-price-section">
+                                    <span class=".del-price">4000</span>
+                                    <span class="real-price">2500</span>
+                                    <span class="off">60% off</span>
+                                </div>
+                                <div class="cart-footer">
+                                    <div class="c-f-item">save for later</div>
+                                    <div class="c-f-item">remove</div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                   </div>
+                   <div class="buy-now-btn">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                    buy now
+                </div>
                 </div>
                 <div class="cart-right">
-
+                    <table>
+                        <tr>
+                            <td>PRICE DETAILS</td>
+                        </tr>
+                        <tr>
+                            <td>Price items(2)</td>
+                            <td>18,118</td>
+                        </tr>
+                        <tr>
+                            <td>Discount</td>
+                            <td>10,118</td>
+                        </tr>
+                        <tr>
+                            <td>Dilevery charges</td>
+                            <td>free</td>
+                        </tr>
+                        <tr>
+                            <td>Total Amount </td>
+                            <td>5888</td>
+                        </tr>
+                        <tr>
+                            <td>You will save ₹12,530 on this order</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
@@ -136,27 +206,35 @@
             //             <h3>${products[i].proPrice}</h3>`
 
 
-                finalProductCart += ` <div class="product">
-                        <div class="product-img">
-                            <img src='${products[i].proImage}'/>
-                        </div>
-                        <div class="product-desc">
-                            <div class="pro-brand">${products[i].proBrand}</div>
-                            <div class="pro-name" >${products[i].proName}</div>
-                            <div class="pro-color">${products[i].proColor}</div>
-                            <div class="pro-assure-img">
-                                <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png"
-                                    alt="">
+                finalProductCart += ` <div class="cart-item" >
+                            <div class="cart-item-left">
+                                <div class="cart-left-content">
+                                    <div class="cart-img">
+                                        <img src='${products[i].proImage}'/>
                             </div>
-                            <div class="pro-price-section">
-                                <span class="real-price">${products[i].proPrice}</span>
-                                <span class="del-price"><del>4500</del></span>
-                                <span class="off">12% off</span>
+                                    <div class="cart-pro-qty">
+                                        <span>-</span>
+                                        <span>1</span>
+                                        <span>+</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="pro-size">Size <span>XS,S,M,L,XL,XXL</span></div>
-                            <div ></div>
-                        </div>
-                    </div>`
+                            <div class="cart-item-right">
+                                <span class="c-product-brand">${products[i].proBrand}</span>
+                                <span class="c-product-name">${products[i].proName}</span>
+                                <div class="c-size-color"><span>M</span><span>${products[i].proColor}</span></div>
+                                <div class="peroduct-seller">Seller: sawarying</div>
+                                <div class="c-price-section">
+                                    <span class=".del-price">4000</span>
+                                    <span class="real-price">${products[i].proPrice}</span>
+                                    <span class="off">60% off</span>
+                                </div>
+                                <div class="cart-footer">
+                                    <div class="c-f-item">save for later</div>
+                                    <div class="c-f-item">remove</div>
+                                </div>
+                            </div>
+                        </div>`
 
         }
         // divToAppendProducts.innerHTML = finalData;

@@ -433,7 +433,35 @@ input[type="password"]:focus {
 }
 
 
+/* ---------single product --------- */
 
+.single-product-container{
+    width: 100%;
+    margin-top: 5%;
+    border: 1px solid black;
+    display: flex;
+    
+}
+.single-product-left{
+    width: 39%;
+    border: 1px solid black;
+}
+.single-product-right{
+    width: 61%;
+    border: 1px solid black;
+}
+.sp-inner-left{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.sp-inner-left-img{
+    width: 100%;
+}
+.sp-inner-left-img img{
+    width: 100%;
+}
 
 
 

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping Site for Mobile, Electronics And Many More</title>
+    <link rel="icon" type="image/x-icon" href="./img/fav.jpg">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8cfedbae53.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="screen">
+        <div class="navbar-wrapper">
+            <div class="navbar-container">
+                <div class="logo-wrapper" onclick="window.location.href='./index.html'">
+                    <div class="logo-img">
+                        <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png"
+                            alt="">
+                    </div>
+                    <div class="logo-txt">
+                        <span>explore</span>
+                        <span>plus</span>
+                        <span class="logo-small-img">
+                            <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/plus_aef861.png"
+                                alt="">
+                        </span>
+                    </div>
+                </div>
+                <div class="search-wrapper">
+                    <input type="text" placeholder="Search for products, brands & many more">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="right-nav-wrapper">
+                    <div class="right-nav-link" onclick="window.location.href='./login.html'" id="switch">login</div>
+                    <div class="right-nav-link">Become a seller</div>
+                    <div class="right-nav-link">more<i class="fa-solid fa-angle-down"></i></div>
+                    <div class="right-nav-link"><i class="fa-solid fa-cart-shopping"></i>cart</div>
+                    <div class="right-nav-link" id="logout"></div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-container">
+            <h1>My Cart</h1>
+
+            <div class="cart" id="finalcart">
+                    <div class="product">
+                        <div class="product-img">
+                            
+                        </div>
+                        <div class="product-desc">
+                            <div class="pro-brand"></div>
+                            <div class="pro-name" ></div>
+                            <div class="pro-color"></div>
+                            <div class="pro-assure-img">
+                                <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png"
+                                    alt="">
+                            </div>
+                            <div class="pro-price-section">
+                                <span class="real-price"></span>
+                                <span class="del-price"><del>4500</del></span>
+                                <span class="off">12% off</span>
+                            </div>
+                            <div class="pro-size">Size <span>XS,S,M,L,XL,XXL</span></div>
+                            <div ></div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+<script>
+    window.onload = function () {
+          // alert("CKJAN")
+
+        // alert("working")
+        var currentUser = JSON.parse(localStorage.getItem("flipcartCurrentUser"))
+        // console.log(currentUser,"currentUser");
+        if (!!currentUser) {
+            // alert(currentUser.namee)
+            var logoutDiv = document.getElementById("logout");
+            var divFromHtml = document.getElementById("switch");
+            // console.log(divFromHtml,"divFromHtml");
+            // var h1 = document.createElement("h1");
+            // h1.innerText = "madhuri"
+            // divFromHtml.append(h1)
+            var button = '<div onclick="logout() " ><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</div>'
+            var name = `<p> ${currentUser.namee}</p>`;
+            divFromHtml.innerHTML = name;
+            logoutDiv.innerHTML = button;
+        }     logoutDiv.innerHTML = button;
+        
+        // else{
+        //     alert("current user absent")
+        // }
+        var currentUser = JSON.parse(localStorage.getItem("flipcartCurrentUser"))
+        var userData = JSON.parse(localStorage.getItem("flipcartUsers"))
+
+        // var divToAppendProductImage = document.getElementById("productImage")
+        // var divToAppendProductName = document.getElementById("productName")
+        // var divToAppendProductPrice = document.getElementById("productPrice")
+        var divToAppendAllProducts = document.getElementById("finalcart")
+        
+
+        var products;
+        for (var i = 0; i < userData.length; i++) {
+            if (currentUser.useremail == userData[i].useremail) {
+                products = userData[i].cartProducts;
+            }
+        }
+        console.log(products,"products here");
+        // var finalData = "";
+
+        // var finalProductImage = "";
+        // var finalProductName = "";
+        // var finalProductPrice = "";
+        var finalProductCart  = "";
+
+        for (var i = 0; i < products.length; i++) {
+
+            // finalData += `<div> <img src='${products[i].proImage}'/><br/>
+            //             <h2>${products[i].proName}</h2><br/>
+            //             <h3>${products[i].proPrice}</h3>`
+
+
+                finalProductCart += ` <div class="product">
+                        <div class="product-img">
+                            <img src='${products[i].proImage}'/>
+                        </div>
+                        <div class="product-desc">
+                            <div class="pro-brand">${products[i].proBrand}</div>
+                            <div class="pro-name" >${products[i].proName}</div>
+                            <div class="pro-color">${products[i].proColor}</div>
+                            <div class="pro-assure-img">
+                                <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png"
+                                    alt="">
+                            </div>
+                            <div class="pro-price-section">
+                                <span class="real-price">${products[i].proPrice}</span>
+                                <span class="del-price"><del>4500</del></span>
+                                <span class="off">12% off</span>
+                            </div>
+                            <div class="pro-size">Size <span>XS,S,M,L,XL,XXL</span></div>
+                            <div ></div>
+                        </div>
+                    </div>`
+
+        }
+        // divToAppendProducts.innerHTML = finalData;
+
+        // divToAppendProductImage.innerHTML = finalProductImage;
+        // divToAppendProductName.innerHTML = finalProductName;
+        // divToAppendProductPrice.innerHTML = finalProductPrice;
+        divToAppendAllProducts.innerHTML = finalProductCart
+
+    }
+    function logout() {
+        alert("We will miss you..")
+        localStorage.removeItem("flipcartCurrentUser");
+        window.location.reload();
+    }
+    
+</script>
+
+<script src="./main.js"></script>
+
+</body>
+
+</html>

@@ -45,39 +45,61 @@
                 </div>
             </div>
         </div>
-        <div class="product-section">
+        <div class="single-product-container">
+            <!-- <div class="single-product-left">
+                <div class="sp-inner-left">
+                    <div class="sp-inner-left-img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="sp-inner-left-img">
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div class="sp-inner-left">
+                    <div class="sp-inner-right-img">
+                        <img src="" alt="">
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="single-product-right">
+hi
+            </div> -->
+        
+        
             <div class="product-container" id="productContainer">
                 <div class="product">
-                    <div class="product-img">
+                    <div class="product-img" id="singleProduct">
                         
                     </div>
                     <div class="product-desc">
-                        <div class="pro-brand"></div>
-                        <div class="pro-name"></div>
-                        <div class="pro-color"></div>
+                        <div class="pro-brand" id="singleProductBrand"></div>
+                        <div class="pro-name" id="singleProductName"></div>
+                        <div class="pro-color" id="singleProductColor"></div>
                         <div class="pro-assure-img">
                             <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png"
                                 alt="">
                         </div>
                         <div class="pro-price-section">
-                            <span class="real-price"></span>
+                            <span class="real-price" id="total-price"></span>
                             <span class="del-price"><del>4500</del></span>
                             <span class="off">12% off</span>
                         </div>
                         <div class="pro-size">Size <span>XS,S,M,L,XL,XXL</span></div>
+                        <div id="forAddToCart"></div>
                     </div>
                 </div>
             </div>
+
         </div>
+
+
     </div>
-
-
-
 
 
     <script>
         window.onload = function () {
-        // alert("CKJAN")
+          // alert("CKJAN")
 
         // alert("working")
         var currentUser = JSON.parse(localStorage.getItem("flipcartCurrentUser"))
@@ -95,65 +117,68 @@
             divFromHtml.innerHTML = name;
             logoutDiv.innerHTML = button;
         }
-        // else{
-        //     alert("current user absent")
-        // }
+            // else{
+            //     alert("current user absent")
+            // }
 
 
-        // var divToShowProducts = document.getElementById("products");
-  
-        var divToShowAllProduct = document.getElementById("productContainer");
+            var product = JSON.parse(localStorage.getItem("flipcart-current-product"));
 
-        var finalContainer = "";
-
-        var productsFromLS = JSON.parse(localStorage.getItem("flipcartProducts"))
-        for (var i = 0; i < productsFromLS.length; i++) {
-            // finalData += `<a  onclick='redirect(${JSON.stringify(productsFromLS[i])})'>
-            //             <img src=${productsFromLS[i].proImage} /><div class="g-pro-name">${productsFromLS[i].proName}</div>
-            //             <div class="g-pro-price">₹  ${productsFromLS[i].proPrice}</div></a>`;
+            var divToAppendProduct = document.getElementById("singleProduct");
+            var divToAppendProductName = document.getElementById("singleProductName");
+            var divToAppendProductBrand = document.getElementById("singleProductBrand");
+            var divToAppendProductColor = document.getElementById("singleProductColor");
+            var divToAppendProductPrice = document.getElementById("total-price");
+            var divForAddToCart = document.getElementById("forAddToCart");
 
 
-            finalContainer += `<div class="product" onclick='redirect(${JSON.stringify(productsFromLS[i])})'>
-                    <div class="product-img">
-                        <img src=${productsFromLS[i].proImage} />
-                    </div>
-                    <div class="product-desc">
-                        <div class="pro-brand">${productsFromLS[i].proBrand}</div>
-                        <div class="pro-name">${productsFromLS[i].proName}</div>
-                        <div class="pro-color">${productsFromLS[i].proColor}</div>
-                        <div class="pro-assure-img">
-                            <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png"
-                                alt="">
-                        </div>
-                        <div class="pro-price-section">
-                            <span class="real-price">₹ ${productsFromLS[i].proPrice}</span>
-                            <span class="del-price"><del>4500</del></span>
-                            <span class="off">12% off</span>
-                        </div>
-                        <div class="pro-size">Size <span>XS,S,M,L,XL,XXL</span></div>
-                    </div>
-                </div>`
+            var structure = `<img src='${product.proImage}' class="got-image" />`
+            var productName = `${product.proName}`
+            var productPrice = `₹${product.proPrice}`
+            var productBrand = `${product.proBrand}`
+            var productColor = `${product.proColor}`
+            var addToCart = `
+            <div class="btn-section" id="forAddToCart">
+                            <button onclick='addCart(${JSON.stringify(product)})' class="cart-btn"><span><i class="fa-solid fa-bag-shopping"></i></span> add to
+                            bag</button>
+                    </div>`
+
+            console.log(structure, "here");
+            divToAppendProduct.innerHTML = structure;
+            divToAppendProductName.innerHTML = productName;
+            divToAppendProductBrand.innerHTML = productBrand;
+            divToAppendProductColor.innerHTML = productColor;
+            divToAppendProductPrice.innerHTML = productPrice;
+            divForAddToCart.innerHTML = addToCart;
+
         }
-
-        // console.log(finalData, "finalData here")
-
-
-        // divToShowProducts.innerHTML = finalData;
-        divToShowAllProduct.innerHTML = finalContainer;
-
-
-    }
-    function redirect(product) {
-        var singleProduct = JSON.stringify(product);
-        // console.log(s, " s here")
-        // alert("Working")
-        localStorage.setItem("flipcart-current-product", singleProduct);
-        window.location.href = './single-product.html'
-    }
-
-
+        function logout() {
+            alert("We will miss you..")
+            localStorage.removeItem("flipcartCurrentUser");
+            window.location.reload();
+        }
+        function addCart(product) {
+            // alert("Adding to cart")
+            var currentUser = JSON.parse(localStorage.getItem("flipcartCurrentUser"))
+            // console.log(currentUser.email);
+            var userData = JSON.parse(localStorage.getItem("flipcartUsers"))
+            var flafForUser = false;
+            for(var i=0; i<userData.length; i++){
+                if(currentUser.useremail === userData[i].useremail){
+                    // alert("got")
+                    if(userData[i].cartProducts == undefined){
+                        userData[i].cartProducts = [product];
+                    }else{
+                        userData[i].cartProducts.push(product)
+                    }
+                    alert("Product added to cart.")
+                    window.location.href = './cart.html'
+                }
+            }
+            localStorage.setItem("flipcartUsers",JSON.stringify(userData))
+        }
     </script>
-<script src="./main.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>

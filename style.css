@@ -864,17 +864,17 @@ input[type="password"]:focus {
     width: 90%;
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 0 auto;
     padding-top: 2rem;
 }
 .cart-left{
     width: 64%;
-    border: 1px solid salmon;
+    /* border: 1px solid salmon; */
 }
 .cart-right{
     width: 34%;
-    border: 1px solid salmon;
+    /* border: 1px solid salmon; */
 }
 .cart-header{
     width: 100%;
@@ -930,7 +930,7 @@ input[type="password"]:focus {
     display: flex;
     justify-content: space-between;
     /* align-items: center; */
-    border: 1px solid salmon;
+    /* border: 1px solid salmon; */
     padding: 1.5rem;
     
 }
